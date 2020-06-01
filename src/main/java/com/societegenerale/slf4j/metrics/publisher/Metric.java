@@ -6,16 +6,16 @@ import org.slf4j.MDC;
 
 import java.util.*;
 
-public class Event {
+public class Metric {
     private static final String FUNCTIONAL_TYPE = "FUNCTIONAL";
     private static final String TECHNICAL_TYPE = "TECHNICAL";
     private static final String NAME_ATTRIBUTE = "metricName";
-    private static final String TYPE_ATTRIBUTE = "type";
+    private static final String TYPE_ATTRIBUTE = "metricType";
 
     private final Map<String, String> attributes = new HashMap<>();
     private final Logger logger;
 
-    private Event(String name, String type) {
+    private Metric(String name, String type) {
         attributes.put(NAME_ATTRIBUTE, name);
         attributes.put(TYPE_ATTRIBUTE, type);
         this.logger = LoggerFactory.getLogger(type);
@@ -27,8 +27,8 @@ public class Event {
      * @param name Metric name
      * @return
      */
-    public static Event functional(String name) {
-        return new Event(name, FUNCTIONAL_TYPE);
+    public static Metric functional(String name) {
+        return new Metric(name, FUNCTIONAL_TYPE);
     }
 
     /**
@@ -37,8 +37,8 @@ public class Event {
      * @param name Metric name
      * @return
      */
-    public static Event technical(String name) {
-        return new Event(name, TECHNICAL_TYPE);
+    public static Metric technical(String name) {
+        return new Metric(name, TECHNICAL_TYPE);
     }
 
     /**
@@ -47,9 +47,9 @@ public class Event {
      * @param name Metric name
      * @return
      */
-    public static Event custom(String name, String type) {
+    public static Metric custom(String name, String type) {
         assert type != null && type.length() > 0;
-        return new Event(name, type);
+        return new Metric(name, type);
     }
 
     /**
@@ -59,7 +59,7 @@ public class Event {
      * @param value the attribute value
      * @return the event itself, to allow chained calls
      */
-    public synchronized Event addAttribute(String name, String value) {
+    public synchronized Metric addAttribute(String name, String value) {
         attributes.putIfAbsent(name, value);
         return this;
     }
@@ -72,7 +72,7 @@ public class Event {
 
         attributes.forEach(MDC::put);
         try {
-            logger.info("");
+            logger.info("publishing metric..");
         } finally {
             if (copyOfMDC != null) {
                 MDC.setContextMap(copyOfMDC);
