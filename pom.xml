@@ -9,6 +9,8 @@
     <name>SLF4J Metrics publisher</name>
     <description>SLF4J Metrics metrics</description>
 
+    <url>https://github.com/societe-generale/slf4j-metrics-publisher</url>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
