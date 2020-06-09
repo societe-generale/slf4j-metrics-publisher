@@ -18,7 +18,7 @@ script:
   - mvn verify
 
 after_success:
-  - mvn clean test jacoco:report coveralls:report
+  - mvn jacoco:report coveralls:report
 
 before_deploy:
   - release/createReleaseProperties.sh
