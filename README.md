@@ -1,5 +1,9 @@
 # slf4j-metrics-publisher
 
+[![Build Status](https://travis-ci.org/societe-generale/slf4j-metrics-publisher.svg?branch=master)](https://travis-ci.org/societe-generale/slf4j-metrics-publisher)
+[![Coverage Status](https://coveralls.io/repos/github/societe-generale/slf4j-metrics-publisher/badge.svg?branch=master)](https://coveralls.io/github/societe-generale/slf4j-metrics-publisher?branch=master)
+
+
 ## Context
 
 This library is used when using Elastic stack, and sending the logs to Logstash using Logback with a config similar to this : 
