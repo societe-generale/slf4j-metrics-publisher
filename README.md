@@ -27,6 +27,16 @@ But what if in addition to the applicative logs, you would also like to send cus
 
 This library contains only a single class, but packaging it like this brings consistency to the projects that use it (instead of copy/pasting the class in all your projects).
 
+Import the library in your Maven project by adding this dependency : 
+
+```xml
+<dependency>
+  <groupId>com.societegenerale.commons</groupId>
+  <artifactId>slf4j-metrics-publisher</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
+
 ### Publishing the metric and its value(s)
 
 Once the library is added to your classpath, creating and publishing events is as simple as this : 
