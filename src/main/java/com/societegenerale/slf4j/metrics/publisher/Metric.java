@@ -6,6 +6,8 @@ import org.slf4j.MDC;
 
 import java.util.*;
 
+import static java.util.stream.Collectors.joining;
+
 public class Metric {
     private static final String FUNCTIONAL_TYPE = "FUNCTIONAL";
     private static final String TECHNICAL_TYPE = "TECHNICAL";
@@ -65,14 +67,22 @@ public class Metric {
     }
 
     /**
-     * Logs the metric using SLFJ log statemet. The attributes are written into the MDC
+     * Logs the metric using SLFJ log statement. The attributes are written into the MDC
      */
     public synchronized void publish() {
         final Map<String, String> copyOfMDC = MDC.getCopyOfContextMap();
 
         attributes.forEach(MDC::put);
         try {
-            logger.info("publishing metric..");
+            if(logger.isInfoEnabled()) {
+                String attributesAsString=attributes.entrySet()
+                        .stream()
+                        .map(Object::toString)
+                        .map(s -> "\""+s+"\"") //field delimiter
+                        .collect(joining(";"));
+
+                logger.info("publishing metric : "+attributesAsString);
+            }
         } finally {
             if (copyOfMDC != null) {
                 MDC.setContextMap(copyOfMDC);

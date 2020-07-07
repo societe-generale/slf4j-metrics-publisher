@@ -100,6 +100,21 @@ public class MetricTest {
                 "metricType", "custom"));
     }
 
+    @Test
+    public void should_also_output_attributes_and_values_as_a_string() throws Exception {
+        //given
+        Metric metric = Metric.custom("An event", "custom")
+                .addAttribute("duration", "123");
+
+        //when
+        metric.publish();
+
+        //then
+        assertThat(TestAppender.events).hasSize(1);
+        ILoggingEvent loggingEvent = TestAppender.events.get(0);
+        assertThat(loggingEvent.toString()).endsWith("\"duration=123\";\"metricType=custom\";\"metricName=An event\"");
+    }
+
 
     @Test
     public void should_restore_mdc_after_publish() throws Exception {
