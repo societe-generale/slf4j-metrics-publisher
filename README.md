@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/societe-generale/slf4j-metrics-publisher.svg?branch=master)](https://travis-ci.org/societe-generale/slf4j-metrics-publisher)
 [![Coverage Status](https://coveralls.io/repos/github/societe-generale/slf4j-metrics-publisher/badge.svg?branch=master)](https://coveralls.io/github/societe-generale/slf4j-metrics-publisher?branch=master)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.societegenerale.commons/slf4j-metrics-publisher/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/com.societegenerale.commons/slf4j-metrics-publisher)
 
 
 ## Context
