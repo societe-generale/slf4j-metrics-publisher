@@ -49,7 +49,7 @@ Once the library is added to your classpath, creating and publishing events is a
 ```
 
 - We first create the metric, giving it a type (_functional_) and a name (_user-logged-in_)
-- We then add an attribute to it (_duraton_) : it's a key/value pair, the value being a String. The attributes are stored in a Map, and we can add as many entries as we want.
+- We then add an attribute to it (_duration_) : it's a key/value pair, the value being a String. The attributes are stored in a Map, and we can add as many entries as we want.
 - When "publishing" the metric, the attributes entries are read, and put in the MDC (see [here](http://logback.qos.ch/manual/mdc.html) for more infos), and a regular logging call is made. But it is "enriched" with all the key/value pairs from the MDC, ie our metric and its attributes.     
 
 ### Receiving the metric
