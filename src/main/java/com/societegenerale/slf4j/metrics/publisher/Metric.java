@@ -62,7 +62,9 @@ public class Metric {
      * @return the event itself, to allow chained calls
      */
     public synchronized Metric addAttribute(String name, String value) {
-        attributes.putIfAbsent(name, value);
+        if(name!=null) {
+            attributes.putIfAbsent(name, value);
+        }
         return this;
     }
 

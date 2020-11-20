@@ -135,6 +135,17 @@ public class MetricTest {
     }
 
     @Test
+    public void should_ignore_attributes_with_null_keys() throws Exception {
+
+        Metric metric = Metric.technical("An event")
+                .addAttribute(null, "someValue");
+
+        metric.publish();
+
+        assertThat(MDC.getCopyOfContextMap()).isNullOrEmpty();
+    }
+
+    @Test
     public void should_throw_exception_when_modifying_from_outside() throws Exception {
 
         Metric metric = Metric.custom("An event", "custom")
