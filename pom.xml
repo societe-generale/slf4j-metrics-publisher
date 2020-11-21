@@ -4,7 +4,7 @@
 
     <groupId>com.societegenerale.commons</groupId>
     <artifactId>slf4j-metrics-publisher</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3-SNAPSHOT</version>
 
     <name>SLF4J Metrics publisher</name>
     <description>SLF4J Metrics metrics</description>
@@ -30,7 +30,7 @@
         </developerConnection>
         <connection>${project.scm.developerConnection}</connection>
         <url>https://github.com/societe-generale/slf4j-metrics-publisher</url>
-      <tag>slf4j_metrics_publisher_1.0.2</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <repositories>
