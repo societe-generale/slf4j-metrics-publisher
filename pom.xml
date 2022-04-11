@@ -19,7 +19,7 @@
         <junit.version>5.6.2</junit.version>
         <assertj-core.version>3.16.1</assertj-core.version>
         <logback.version>1.2.3</logback.version>
-        <guava.version>29.0-jre</guava.version>
+        <guava.version>31.1-jre</guava.version>
 
         <jacoco.version>0.8.3</jacoco.version>
 
